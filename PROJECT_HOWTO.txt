@@ -6,3 +6,45 @@ Install Netbeans plugin GoogleAppEngine.
 http://kenai.com/projects/nbappengine/pages/Home
 
 New Project -> Java Web -> Web Application
+
+
+Problem:  In a standard Java project (JavaWSLayoutTest) I created a Groovy class, and immediately the Groovy support was added to the project:  The library included, the build file added, the property files updated ... and a new entry in the Project-> Properties-> Build entry 
+
+But this is not done for the GAE project!
+
+So the adaptation must be made manually.
+
+
+Problem:  The gaelyk template project provides a structure that is not per se compatible with the Netbeans project.
+
+
+
+ACTIONS:
+
+Copied anything from gaelyk template /war directory into Project's /web directory, except
+the WEB-INF directory.
+
+Deleted /war/index.jsp from Project.
+
+In Project, added Library Groovy to Project.
+
+Created in NB new Library Gaelyk, referring to the downloaded gaelyk.jar, and added that to Project.
+
+
+Copied Gaelyk WEB-INF /groovy  /includes routes.groovy to Project WEB-INF
+
+Copied content of appengine-web.xml and web.xml into Project's files, removing entry for index.jsp.
+
+NOTE:
+I do not know why the project TestAppEngine packages all the GAE libraries into the war file, and this project does not!
+
+YES, I DO :   NOT build COPIES THE LIBRARIES, BUT DEPLOY !!! When calling deploy, the GAE libs are copied, the war recreated and the application server starts.
+
+
+When you deploy this current state, indeed  http://localhost:8080 shows:  Congratulations, you have build your first gaelyk app.
+
+I.E: Everything runtime alike (gtpl) works.  What is not certain is, that groovy code is compiled to classes into the right location, as the groovy builder support in NB is not correctly included. This is, what is missing in comparision with the JavaWSLayoutTest project.
+
+The Groovy integration should be migrated to GaeGroovyTest, that would indeed result in a fully fledged Groovy GAE template project.
+
+
