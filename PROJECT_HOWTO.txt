@@ -1,0 +1,8 @@
+Groovy on App Engine with Gaelyk.
+(See: http://gaelyk.appspot.com/tutorial)
+
+
+Install Netbeans plugin GoogleAppEngine.
+http://kenai.com/projects/nbappengine/pages/Home
+
+New Project -> Java Web -> Web Application
